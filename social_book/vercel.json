@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "SOCIAL_BOOK/wsgi.py",
+        "src": "social_book/wsgi.py",
         "use": "@vercel/python",
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
       },
@@ -21,7 +21,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "SOCIAL_BOOK/wsgi.py"
+        "dest": "social_book/wsgi.py"
       }
     ]
   }

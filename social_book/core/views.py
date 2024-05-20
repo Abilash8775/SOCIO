@@ -28,9 +28,11 @@ def index(request):
     post=Post.objects.all()
     
     if request.method=='POST':
-        sc=request.POST['search']
-        if sc is not None:
-            return redirect(f'/profile/{sc}')
+            sc=request.POST['search']
+            if len(User.objects.filter(username=sc))==1:
+                return redirect(f'/profile/{sc}')
+            else:
+                return render(request,'../templates/pnp.html',{'sc':sc})
     return render(request, '../templates/index.html',{'user_profile':user_profile,'post':feed_list})
 @login_required(login_url='signin')
 def like_post(request):
